@@ -1,0 +1,84 @@
+<!--meta {
+  "title": "Contactos e pedido de orçamento | Reguilas",
+  "description": "Peça um orçamento para animação infantil no seu casamento, batizado, aniversário ou evento corporativo. E-mail reguilaseventos@gmail.com · Tel. 910 997 292.",
+  "ogImage": "/assets/img/hero-contactos.webp",
+  "bodyClass": "page-contactos"
+} -->
+<section class="page-hero">
+  <img src="/assets/img/hero-contactos.webp" alt="Mascote da Minnie com famílias numa feira" width="1400" height="816" fetchpriority="high">
+  <div class="badge"><h1>Contactos</h1></div>
+</section>
+
+<section class="section--tight" style="padding-top:56px">
+  <div class="wrap">
+    <h2 class="section-title">Entre em contacto connosco</h2>
+    <div class="contact-info">
+      <p class="mt-0">E-mail: <a href="mailto:reguilaseventos@gmail.com">reguilaseventos@gmail.com</a></p>
+      <p class="mt-0">Telemóvel: <a href="tel:+351910997292">(+351) 910 997 292</a><small>(chamada para a rede móvel nacional)</small></p>
+    </div>
+    <hr class="dotted">
+    <p class="form-note">Preencha o formulário abaixo para que possamos enviar-lhe uma proposta o mais completa e ajustada possível.</p>
+    <p class="form-note" style="margin-top:12px">Este formulário corresponde apenas a um pedido de orçamento e não garante a reserva da data.</p>
+  </div>
+</section>
+
+<section class="form-band" id="orcamento" aria-labelledby="orcamento-titulo">
+  <h2 id="orcamento-titulo" class="visually-hidden">Pedido de orçamento</h2>
+  <div class="wrap">
+    <form class="form" name="orcamento" method="POST" action="/obrigado" data-netlify="true" netlify-honeypot="empresa-site">
+      <input type="hidden" name="form-name" value="orcamento">
+      <p class="hidden-field"><label>Não preencher: <input name="empresa-site" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="field">
+        <label for="nome">Nome<span class="req" aria-hidden="true">*</span></label>
+        <input id="nome" name="nome" type="text" autocomplete="name" required placeholder="O seu nome">
+      </div>
+      <div class="field">
+        <label for="contacto">Contacto<span class="req" aria-hidden="true">*</span></label>
+        <input id="contacto" name="contacto" type="text" autocomplete="email" required placeholder="E-mail ou telemóvel">
+      </div>
+
+      <div class="field field--third">
+        <label for="data">Data do evento<span class="req" aria-hidden="true">*</span></label>
+        <input id="data" name="data" type="date" required>
+      </div>
+      <div class="field field--third">
+        <label for="criancas">Nº de crianças<span class="req" aria-hidden="true">*</span></label>
+        <input id="criancas" name="criancas" type="number" min="1" max="500" inputmode="numeric" required placeholder="Aproximado">
+      </div>
+      <div class="field field--third">
+        <label for="idades">Média de idades</label>
+        <input id="idades" name="idades" type="text" placeholder="Ex.: 3 a 8 anos">
+      </div>
+
+      <div class="field">
+        <label for="local">Localização<span class="req" aria-hidden="true">*</span></label>
+        <input id="local" name="local" type="text" autocomplete="address-level2" required placeholder="Ex.: Cantanhede">
+      </div>
+      <div class="field">
+        <label for="tipo">Tipo de evento<span class="req" aria-hidden="true">*</span></label>
+        <select id="tipo" name="tipo" required>
+          <option value="" disabled selected>Escolha uma opção</option>
+          <option value="casamento">Casamento</option>
+          <option value="batizado">Batizado</option>
+          <option value="aniversario">Festa de aniversário</option>
+          <option value="corporativo">Evento corporativo / município</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+
+      <div class="field field--full">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Conte-nos mais sobre o evento: horário, espaço, atividades que gostava de incluir…"></textarea>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" name="consentimento" value="sim" required>
+        <span>Aceito que os Reguilas utilizem estes dados apenas para responder ao meu pedido, de acordo com a <a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>.<span class="req" aria-hidden="true">*</span></span>
+      </label>
+
+      <p class="field field--full hint" style="margin:0">* Campos obrigatórios</p>
+      <div class="form-actions"><button class="btn btn--light" type="submit">Enviar pedido</button></div>
+    </form>
+  </div>
+</section>

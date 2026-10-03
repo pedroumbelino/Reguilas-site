@@ -1,0 +1,64 @@
+<!--meta {
+  "title": "Feedback | Reguilas",
+  "description": "Celebrou connosco? Conte-nos como foi! A sua opinião ajuda-nos a criar festas cada vez mais especiais.",
+  "ogImage": "/assets/img/home-minnie.webp"
+} -->
+<section class="sky-hero">
+  <img src="/assets/img/ceu.webp" alt="" width="1438" height="560">
+  <h1>Feedback</h1>
+</section>
+
+<section class="section--tight" style="padding-top:56px">
+  <div class="wrap">
+    <h2 class="section-title">Como foi a sua festa?</h2>
+    <p class="form-note">A sua opinião ajuda-nos a melhorar e a mostrar a outras famílias o que fazemos. Obrigado por partilhar!</p>
+  </div>
+</section>
+
+<section class="form-band" aria-labelledby="feedback-form-titulo">
+  <h2 id="feedback-form-titulo" class="visually-hidden">Formulário de feedback</h2>
+  <div class="wrap">
+    <form class="form" name="feedback" method="POST" action="/obrigado?origem=feedback" data-netlify="true" netlify-honeypot="empresa-site">
+      <input type="hidden" name="form-name" value="feedback">
+      <p class="hidden-field"><label>Não preencher: <input name="empresa-site" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field">
+        <label for="fb-nome">Nome<span class="req" aria-hidden="true">*</span></label>
+        <input id="fb-nome" name="nome" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="fb-evento">Tipo de evento</label>
+        <select id="fb-evento" name="evento">
+          <option value="">Escolha uma opção</option>
+          <option>Casamento</option>
+          <option>Batizado</option>
+          <option>Festa de aniversário</option>
+          <option>Evento corporativo / município</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <fieldset class="field field--full rating">
+        <legend>Avaliação</legend>
+        <div class="rating-stars">
+          <input type="radio" id="r5" name="avaliacao" value="5"><label for="r5" title="5 estrelas">★<span class="visually-hidden">5 estrelas</span></label>
+          <input type="radio" id="r4" name="avaliacao" value="4"><label for="r4" title="4 estrelas">★<span class="visually-hidden">4 estrelas</span></label>
+          <input type="radio" id="r3" name="avaliacao" value="3"><label for="r3" title="3 estrelas">★<span class="visually-hidden">3 estrelas</span></label>
+          <input type="radio" id="r2" name="avaliacao" value="2"><label for="r2" title="2 estrelas">★<span class="visually-hidden">2 estrelas</span></label>
+          <input type="radio" id="r1" name="avaliacao" value="1"><label for="r1" title="1 estrela">★<span class="visually-hidden">1 estrela</span></label>
+        </div>
+      </fieldset>
+      <div class="field field--full">
+        <label for="fb-mensagem">O seu testemunho<span class="req" aria-hidden="true">*</span></label>
+        <textarea id="fb-mensagem" name="mensagem" required placeholder="O que mais gostou? Como reagiram as crianças?"></textarea>
+      </div>
+      <label class="check">
+        <input type="checkbox" name="publicar" value="sim">
+        <span>Autorizo que o meu testemunho (com o primeiro nome) seja publicado no site e nas redes sociais dos Reguilas.</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="consentimento" value="sim" required>
+        <span>Li e aceito a <a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>.<span class="req" aria-hidden="true">*</span></span>
+      </label>
+      <div class="form-actions"><button class="btn btn--light" type="submit">Enviar feedback</button></div>
+    </form>
+  </div>
+</section>
