@@ -14,7 +14,11 @@ npm run build      # só gera dist/
 O código-fonte está em `src/` (layout, partes comuns e páginas) e `assets/` (CSS, JS, imagens, tipos de letra alojados localmente). `build.mjs` junta tudo em `dist/`.
 
 ## Publicação (Netlify)
-`netlify.toml` já está configurado (`node build.mjs` → `dist`). Os formulários de orçamento e feedback usam **Netlify Forms**: depois do primeiro deploy, ativar notificações por e-mail para reguilaseventos@gmail.com em *Site → Forms → Notifications*.
+Pré-visualização: https://reguilas.netlify.app (fora do Google enquanto `INDEXAR` não for `1`).
+
+`netlify.toml` já está configurado (`node build.mjs` → `dist`). Os formulários de orçamento e feedback usam **Netlify Forms**: os pedidos ficam guardados no painel do Netlify (*Project → Forms*). Não há notificações por e-mail configuradas.
+
+Para o lançamento com domínio próprio, definir no Netlify as variáveis `SITE_URL=https://dominio-final.pt` e `INDEXAR=1`.
 
 ## Jev (TypeSafe) — decisões e avaliação de qualidade
 ```sh
@@ -31,5 +35,5 @@ npm run jev:avaliar    # o Jev avalia cada página (clareza, CTA, tom, confianç
 - Logótipos oficiais dos parceiros
 - Artigos do blog
 - Fotografias originais em alta resolução e logótipo em SVG
-- Domínio final (`SITE_URL` em `build.mjs` e `public/robots.txt`)
+- Domínio final (variáveis `SITE_URL` e `INDEXAR` no Netlify)
 - Identificação completa na Política de Privacidade

@@ -4,7 +4,10 @@
 import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const SITE_URL = "https://reguilas.pt"; // TODO: confirmar o domínio final
+// TODO: quando houver domínio final, definir SITE_URL e INDEXAR=1 no Netlify.
+const SITE_URL = (process.env.SITE_URL ?? "https://reguilas.netlify.app").replace(/\/$/, "");
+// Enquanto o site for uma pré-visualização, fica fora dos motores de pesquisa.
+const INDEXAR = process.env.INDEXAR === "1";
 const root = new URL(".", import.meta.url).pathname;
 const out = join(root, "dist");
 const layout = readFileSync(join(root, "src/layout.html"), "utf8");
@@ -15,7 +18,10 @@ const partials = Object.fromEntries(
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 cpSync(join(root, "assets"), join(out, "assets"), { recursive: true });
-for (const f of ["robots.txt", "_headers"]) cpSync(join(root, "public", f), join(out, f));
+cpSync(join(root, "public/_headers"), join(out, "_headers"));
+writeFileSync(join(out, "robots.txt"), INDEXAR
+  ? `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`
+  : "User-agent: *\nDisallow: /\n");
 
 const fill = (tpl, vars) => tpl.replace(/\{\{\s*([\w.>-]+)\s*\}\}/g, (_, key) => {
   if (key.startsWith(">")) return fill(partials[key.slice(1)] ?? "", vars);
@@ -36,7 +42,7 @@ for (const file of pages) {
     url: SITE_URL + path,
     siteUrl: SITE_URL,
     ogImage: SITE_URL + (meta.ogImage ?? "/assets/img/hero-home.webp"),
-    robots: meta.noindex ? "noindex" : "index, follow",
+    robots: meta.noindex || !INDEXAR ? "noindex" : "index, follow",
     bodyClass: meta.bodyClass ?? "",
   };
   // Marca o link ativo no menu
